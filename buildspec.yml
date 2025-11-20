@@ -20,6 +20,8 @@ phases:
       - mvn package -s settings.xml
 artifacts:
   files:
-    - target/*.war
+    - target/aws-devops-java-app.war
+    - appspec.yml
+    - scripts/**/*
   discard-paths: no
 
