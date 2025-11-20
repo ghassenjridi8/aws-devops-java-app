@@ -32,6 +32,8 @@ Here’s what I’m using for this project:
 - **GitHub**: All my web app code is stored and versioned in this GitHub repository.  
 - **AWS CodeArtifact**: CodeArtifact stores my artifacts and dependencies, which helps with high availability and speeds up my project’s build process.  
 - **AWS CodeBuild**: Once it’s rolled out, CodeBuild will take over my build process. It will compile the source code, run tests, and produce ready-to-deploy software packages automatically.
+- **AWS CodeDeploy**: AWS CodeDeploy automates the deployment of my Java application to an Amazon EC2 instance. 
+- **AWS CodePipeline**: AWS CodePipeline orchestrates my entire CI/CD workflow. It connects all stages of the software release process: source, build, and deployment into an automated pipeline. Whenever I push new code to GitHub, CodePipeline detects the change, triggers CodeBuild, and then hands the output to CodeDeploy for release.
 
 <br>
 
@@ -50,9 +52,32 @@ To get this project up and running on your local machine, follow these steps:
     ```
 
 3. **Install dependencies:**
+a. ***Install Apache Maven***
     ```bash
-    mvn install
+    wget https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
+    sudo tar -xzf apache-maven-3.5.2-bin.tar.gz -C /opt
+    echo "export PATH=/opt/apache-maven-3.5.2/bin:$PATH" >> ~/.bashrc
+    source ~/.bashrc
     ```
+b. ***Install Coretto:***
+    ````bash
+    sudo dnf install -y java-1.8.0-amazon-corretto-devel
+    export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64
+    export PATH=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/bin/:$PATH
+    ```
+
+4. **Create code artifact repo in aws:**
+    Name:  aws-devops-java-app-cicd
+    Descirption: This repository stores packages related to a Java web app created as a part of a CI/CD Pipeline project.
+    Choose maven as repo ustream
+    Domain: aws-devops-java-app
+
+    
+
+
+
+
+
 
 <br>
 
