@@ -86,6 +86,45 @@ To get this project up and running on your local machine, follow these steps:
     ```bash
     mvn -s settings.xml compile
     ```
+7. **Create s3 bucket to store the build artifact**
+8. **Create project in CodeBuild**
+    - **Source:** Github   
+    - **Image:** Coretto 8 
+    - **Buildspec:** buildspec.yml file  
+    - **Artifacts** S3, choose the bucket you just created and Zip as Artifacts packaging 
+
+8. **Give CodeBuild access to CodeArtifact:**
+    - **attach policy to access codeartifact to codebuild role**
+9. **build project**
+10. **Create Stack using Cloudformation:**
+    - **template:** cloudformation_template.yml   
+    - **IP:**  Enter <yourIP>/32
+
+11.  **Create CodeDeploy IAM role:** to give access to codedeploy to the  EC2 instance
+        - **Choose AWS service**
+        - **Choose CodeDeploy**
+        - **Add permissions: AWSCodeDeployRole**
+
+12. **Create application in CodeDeploy**
+        - **Compute platform:** EC2/on premises
+        
+13. **Create deployment group:** 
+    - **Service Type:** AWS CodeDeployRole (created in step 11)
+    - **Deployment type:** in-place: Updates the application on existing instances
+    - **Environment configuration:** Amazon EC2 instances
+        i. **In Tag group 1**, enter role as the Key
+        ii. Enter webserver as the Value
+    - **Deployment settings:** CodeDeployDefault.AllAtOnce
+    - **Load balancer**: disabled since we have only one instance
+
+13. **Create deployment**
+
+
+
+
+
+
+
 
 <br>
 
