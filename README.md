@@ -62,8 +62,8 @@ To get this project up and running on your local machine, follow these steps:
     source ~/.bashrc
     ```
     b. ***Install Coretto:***
-    
-    ````bash
+
+    ```bash
     sudo dnf install -y java-1.8.0-amazon-corretto-devel
     export JAVA_HOME=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64
     export PATH=/usr/lib/jvm/java-1.8.0-amazon-corretto.x86_64/jre/bin/:$PATH
@@ -75,7 +75,19 @@ To get this project up and running on your local machine, follow these steps:
     Choose maven as repo ustream
     Domain: aws-devops-java-app
 
-    
+5. **create IAM role to access CodeArtifact and attach it to your EC2 instance.**
+
+6. **Authorize the instance to use CodeArtifact:**
+    ```bash
+    export CODEARTIFACT_AUTH_TOKEN=`aws codeartifact get-authorization-token --domain aws-devops-java-app --domain-owner <your account ID> --region eu-west-1 --query authorizationToken --output text`
+    ```
+
+6. **Compile settings.xml to tell Maven where to find the dependencies and how to get access to the right repositories:**
+    ```bash
+    mvn -s settings.xml compile
+    ```
+
+
 
 
 
