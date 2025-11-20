@@ -70,10 +70,10 @@ To get this project up and running on your local machine, follow these steps:
     ```
 
 4. **Create code artifact repo in aws:**
-    Name:  aws-devops-java-app-cicd
-    Descirption: This repository stores packages related to a Java web app created as a part of a CI/CD Pipeline project.
-    Choose maven as repo ustream
-    Domain: aws-devops-java-app
+    - **Name:** aws-devops-java-app-cicd  
+    - **Description:** This repository stores packages related to a Java web app created as part of a CI/CD pipeline project  
+    - **Upstream Repo:** Maven  
+    - **Domain:** aws-devops-java-app
 
 5. **Create IAM role to access CodeArtifact and attach it to your EC2 instance.**
 
