@@ -1,0 +1,35 @@
+<settings>
+
+    <servers>
+        <server>
+            <id>aws-devops-java-app-aws-devops-java-app-cicd</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+    </servers>
+    
+    <profiles>
+        <profile>
+            <id>aws-devops-java-app-aws-devops-java-app-cicd</id>
+            <activation>
+            <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+            <repository>
+                <id>aws-devops-java-app-aws-devops-java-app-cicd</id>
+                <url>https://aws-devops-java-app-234438862764.d.codeartifact.eu-west-1.amazonaws.com/maven/aws-devops-java-app-cicd/</url>
+            </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <mirrors>
+        <mirror>
+            <id>aws-devops-java-app-aws-devops-java-app-cicd</id>
+            <name>aws-devops-java-app-aws-devops-java-app-cicd</name>
+            <url>https://aws-devops-java-app-234438862764.d.codeartifact.eu-west-1.amazonaws.com/maven/aws-devops-java-app-cicd/</url>
+            <mirrorOf>*</mirrorOf>
+        </mirror>
+    </mirrors>
+
+</settings>
