@@ -53,7 +53,7 @@ To get this project up and running on your local machine, follow these steps:
 
 3. **Install dependencies:**
 
-    a. ***Install Apache Maven***
+    a. ***Install Apache Maven:***
 
     ```bash
     wget https://archive.apache.org/dist/maven/maven-3/3.5.2/binaries/apache-maven-3.5.2-bin.tar.gz
@@ -75,7 +75,7 @@ To get this project up and running on your local machine, follow these steps:
     Choose maven as repo ustream
     Domain: aws-devops-java-app
 
-5. **create IAM role to access CodeArtifact and attach it to your EC2 instance.**
+5. **Create IAM role to access CodeArtifact and attach it to your EC2 instance.**
 
 6. **Authorize the instance to use CodeArtifact:**
     ```bash
@@ -86,13 +86,6 @@ To get this project up and running on your local machine, follow these steps:
     ```bash
     mvn -s settings.xml compile
     ```
-
-
-
-
-
-
-
 
 <br>
 
